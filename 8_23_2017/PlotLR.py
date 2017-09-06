@@ -48,6 +48,11 @@ a0 = linealRegression.a0
 a1 = linealRegression.a1
 y2 = linealRegression.eval(x)
 
+y2MinimoCuadrado = LR.mse(y, y2)
+
+print("MSE Modelo Uno: ", LR.mse(y, y2))
+
+
 fig, ax = plt.subplots()
 ax.plot(x, y, 'ko', label='real points')
 ax.plot(x, y2, 'r--', label=function_format.format(a0,a1))

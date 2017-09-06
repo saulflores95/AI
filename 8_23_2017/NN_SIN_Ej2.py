@@ -1,7 +1,7 @@
 import tflearn
 import numpy as np
 import matplotlib.pyplot as plt
-
+from P2RegresionLineal import mse
 
 X = np.arange(-1.5, 1.5, 0.05)
 Y = np.sin(X)
@@ -24,6 +24,8 @@ regression = tflearn.regression(output, optimizer='sgd', loss='mean_square',
 m = tflearn.DNN(regression)
 m.fit(X.reshape(len(X),1), Y.reshape(len(Y),1), n_epoch=100, show_metric=True, snapshot_epoch=False)
 Y_ = m.predict(X.reshape(len(X), 1))
+print("MSE Modelo Uno: ", mse(Y, Y_))
 plt.plot(X, Y, 'k--', label='real points')
 plt.plot(X, Y_, 'ro', label='real points')
+plt.title('Ej.2 Configuracion 1')
 plt.show()
